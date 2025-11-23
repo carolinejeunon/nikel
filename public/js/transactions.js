@@ -69,6 +69,9 @@ function getTransactions(){
 
     if(transactions.length){
         transactions.forEach((item) => {
+            let brDate = new Date(item.date).toLocaleDateString("pt-BR", {
+                timeZone: "UTC"
+            });
             let type = "Entrada";
 
             if(item.type === "2"){
@@ -77,7 +80,7 @@ function getTransactions(){
 
             transactionsHtml += `
                 <tr>
-                    <th scope="row">${item.date}</th>
+                    <th scope="row">${brDate}</th>
                     <td>R$ ${item.value.toFixed(2)}</td>
                     <td>${type}</td>
                     <td>${item.description}</td>

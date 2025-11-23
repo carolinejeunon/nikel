@@ -84,7 +84,10 @@ function getCashIn(){
             limit = cashIn.length;
         }
 
-        for(let index = 0; index < limit; index++){
+        for(let index = 0; index < limit; index++){ 
+        let brDateCashIn = new Date(cashIn[index].date).toLocaleDateString("pt-BR", {
+            timeZone: "UTC"
+        });
             cashInHtml += `
             <div class="row mb-4">
                 <div class="col-12">
@@ -95,7 +98,7 @@ function getCashIn(){
                                 <p>${cashIn[index].description}</p>
                             </div>
                             <div class="col-12 col-md-3 d-flex justify-content-end">
-                                ${cashIn[index].date}
+                                ${brDateCashIn}
                             </div>
                         </div>
                     </div>
@@ -125,7 +128,10 @@ function getCashOut(){
             limit = cashOut.length;
         }
 
-        for(let index = 0; index < limit; index++){
+        for(let index = 0; index < limit; index++){  
+        let brDateCashOut = new Date(cashOut[index].date).toLocaleDateString("pt-BR", {
+            timeZone: "UTC"
+        });
             cashOutHtml += `
             <div class="row mb-4">
                 <div class="col-12">
@@ -136,7 +142,7 @@ function getCashOut(){
                                 <p>${cashOut[index].description}</p>
                             </div>
                             <div class="col-12 col-md-3 d-flex justify-content-end">
-                                ${cashOut[index].date}
+                                ${brDateCashOut}
                             </div>
                         </div>
                     </div>
