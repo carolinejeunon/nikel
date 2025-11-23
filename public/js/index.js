@@ -43,6 +43,14 @@ document.getElementById('create-form').addEventListener('submit', function(e){
         return;
     }
 
+    const usuarioExistente = localStorage.getItem(email);
+
+    if(usuarioExistente){
+        alert("E-mail já cadastrado");
+        myModal.hide();
+        return;
+    }
+    
     saveAccount({
         login: email,
         password: password,
